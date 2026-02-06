@@ -1,8 +1,11 @@
+# general
 *.diff
 *.egg-info/
+*.so
 *.patch
 *.pyc
 *__pycache__*
+*.mypy_cache
 *_output.txt
 .DS_Store
 .coverage
@@ -10,16 +13,27 @@
 .python-version
 .vscode/
 MANIFEST
-build/
 commit.txt
 cpy_server*/
 dev*.py
-dist/
-docs/INFO_BIN
-docs/INFO_SRC
-lib/mysql/vendor/
-src/mysqlxpb/mysqlx/mysqlx*
-tests_*.log
+pip-wheel-metadata/
 venv/
 venv2/
 venv3/
+docs
+dist
+build
+
+# Classic/X DevAPI protocol connector (aka mysql)
+mysql*-connector-python/build/
+mysql*-connector-python/dist/
+mysql*-connector-python/docs/INFO_BIN
+mysql*-connector-python/docs/INFO_SRC
+mysql*-connector-python/lib/mysql/vendor/
+mysql*-connector-python/tests_*.log
+mysql*-connector-python/README.txt
+mysql*-connector-python/README.rst
+mysql*-connector-python/LICENSE.txt
+mysql*-connector-python/CHANGES.txt
+mysql*-connector-python/CONTRIBUTING.md
+mysql*-connector-python/SECURITY.md

@@ -1,12 +1,333 @@
 ====================================================
-MySQL Connector/Python 8.0 - Release Notes & Changes
+MySQL Connector/Python - Release Notes & Changes
 ====================================================
 
 MySQL Connector/Python
-Copyright (c) 2009, 2020, Oracle and/or its affiliates.
+Copyright (c) 2009, 2026, Oracle and/or its affiliates.
 
 Full release notes:
  http://dev.mysql.com/doc/relnotes/connector-python/en/
+
+v9.6.0
+======
+
+This release contains no functional changes.
+
+v9.5.0
+======
+
+- WL#17049: Remove usage of SQL functions MD5() and SHA1()
+- WL#17088: MySQL Connector Python HeatWave GenAI and ML SDK
+- WL#17048: Remove Python 3.9 support
+- WL#17045: Add support for Python 3.14
+
+v9.4.0
+======
+
+- WL#16966: Upgrade Python lz4 version
+- WL#16963: Update the OpenTelemetry version
+- WL#16962: Update the Python Protobuf version
+- WL#16954: Make sdist packages pip installable
+- BUG#38072835: Authentication OCI plugin option parameters not being supported by the aio connector
+- BUG#37868219: RPM packages have incorrect copyright year in their metadata
+- BUG#37859771: mysql/connector python version 9.3.0 has a regression which cannot persist binary data with percent signs in it
+- BUG#37820231: Text based django ORM filters doesn't work with Connector/Python
+- BUG#37806057: Rename extra option (when installing wheel package) to install webauthn functionality dependencies
+- BUG#37774513: Inconsistent conversion to_sql for cext vs pure python
+- BUG#37642447: The license type is missing from RPM package
+- BUG#37627508: mysql/connector python fetchmany() has an off by one bug when argument given as 1
+- BUG#37047789: Python connector does not support Django enum
+- BUG#36733242: Contribution: Add Connection Pooling Support for AsyncIO Connector
+- BUG#36452514: Missing version info resources
+- BUG#34950958: MySQL Python Connector doesn't work with ssh in the same process
+- BUG#34844347: Freezes on connection via sshtunnel
+
+v9.3.0
+======
+
+- WL#16754: The host wildcard no longer applies to localhost
+- WL#16752: Deprecate class methods to access instance data or to know instance internal state
+- WL#16327: Remove Cursors Prepared Raw and Named Tuple
+- BUG#37541353: (Contribution) Fix typing annotation of MySQLConnectionAbstract's close function
+- BUG#37453587: Github links in PyPI project's pages do not work
+- BUG#37418436: Arbitrary File Read in MySQL Python Client library
+- BUG#37410052: Bad formatting of exceptions when connecting with Unix sockets
+- BUG#37399636: The C-extension has a memory leak when working with prepared statements
+- BUG#37275524: Exception is not interpreted properly on prepared statements when C extension is in use
+- BUG#36098290: mysql-connector-python is distributed without setup.py or pyproject.toml
+
+v9.2.0
+======
+
+- WL#16381: Add support for read and write timeouts
+- WL#16285: Remake Multi Statement Execution
+- BUG#37145655: MySQL Connector/Python Configuration Files RCE
+- BUG#36702939: connection_cext has a memory leak in the python mysql-connector
+- BUG#36922645: Option `connection_timeout` is overwritten and works as "query" timeout instead
+- BUG#36126909: "Unread result found" exception/bad MySQLCursor.statement when query text contains code comments
+- BUG#35810050: Executing multiple statements fails when importing Sakila
+
+v9.1.0
+======
+
+- WL#16452: Bundle all installable authentication plugins when building the C-extension
+- WL#16444: Drop build support for DEB packages
+- WL#16442: Upgrade gssapi version to 1.8.3
+- WL#16411: Improve wheel metadata information for Classic and XDevAPI connectors
+- WL#16341: OpenID Connect (Oauth2 - JWT) Authentication Support
+- WL#16307: Remove Python 3.8 support
+- WL#16306: Add support for Python 3.13
+- BUG#37055435: Connection fails during the TLS negotiation when specifying TLSv1.3 ciphers
+- BUG#37013057: mysql-connector-python Parameterized query SQL injection
+- BUG#36765200: python mysql connector 8.3.0 raise %-.100s:%u when input a wrong host
+- BUG#36577957: Update charset/collation description indicate this is 16 bits
+
+v9.0.0
+======
+
+- WL#16350: Update dnspython version
+- WL#16318: Deprecate Cursors Prepared Raw and Named Tuple
+- WL#16284: Update the Python Protobuf version
+- WL#16283: Remove OpenTelemetry Bundled Installation
+- BUG#36664998: Packets out of order error is raised while changing user in aio
+- BUG#36611371: Update dnspython required versions to allow latest 2.6.1
+- BUG#36570707: Collation set on connect using C-Extension is ignored
+- BUG#36476195: Incorrect escaping in pure Python mode if sql_mode includes NO_BACKSLASH_ESCAPES
+- BUG#36289767: MySQLCursorBufferedRaw does not skip conversion
+
+v8.4.0
+======
+
+- WL#16203: GPL License Exception Update
+- WL#16173: Update allowed cipher and cipher-suite lists
+- WL#16164: Implement support for new vector data type
+- WL#16127: Remove the FIDO authentication mechanism
+- WL#16053: Support GSSAPI/Kerberos authentication on Windows using authentication_ldap_sasl_client plug-in for C-extension
+- BUG#36227964: Improve OpenTelemetry span coverage
+- BUG#36167880: Massive memory leak mysqlx native Protobuf adding to collection
+
+v8.3.0
+======
+
+- WL#16015: Remove use of removed COM_ commands
+- WL#15985: Support GSSAPI/Kerberos authentication on Windows using authentication_ldap_sasl_client plug-in for Pure Python
+- WL#15983: Stop using mysql_ssl_set api
+- WL#15982: Remove use of mysql_shutdown
+- WL#15950: Support query parameters for prepared statements
+- WL#15942: Improve type hints and standardize byte type handling
+- WL#15836: Split mysql and mysqlx into different packages
+- WL#15523: Support Python DB API asynchronous execution
+- BUG#35912790: Binary strings are converted when using prepared statements
+- BUG#35832148: Fix Django timezone.utc deprecation warning
+- BUG#35710145: Bad MySQLCursor.statement and result when query text contains code comments
+- BUG#21390859: STATEMENTS GET OUT OF SYNCH WITH RESULT SETS
+
+v8.2.0
+======
+
+- WL#15664: Add support for Python 3.12
+- WL#15623: Improve the authentication module
+- WL#15218: Support WebAuthn authentication
+- BUG#35755852: Django config raise_on_warnings is ignored without isolation_level
+- BUG#35733608: Server stmt spans right after the cnx aren't related to the connector's cnx span
+- BUG#35547876: C/Python 8.1.0 type check build fails in the pb2 branch
+- BUG#35544123: Kerberos unit tests configuration is outdated
+- BUG#35503506: Query on information_schema.columns returns bytes
+- BUG#35503377: First connected to server v8, then any v5 connections fail with utf8mb4 charset
+- BUG#35141645: Memory leak in the mysqlx C extension
+
+v8.1.0
+======
+
+- WL#15749: Remove DMG and MSI support
+- WL#15672: Upgrade Python Protobuf version to 4.21.12
+- WL#15630: Remove Python 3.7 support
+- WL#15629: Add OpenTelemetry tracing
+- WL#15591: Improve the network module
+- BUG#35425076: Fix deallocating None error
+- BUG#35349093: Compression doesn't work with C extension API
+- BUG#35338384: PIP installs incompatible Connector/Python packages
+- BUG#35318413: Fix charset mapping for MySQL 8.1.0
+- BUG#35278365: Fix UnicodeDecodeError with a long field name alias (c-ext)
+- BUG#35212199: Check for identifier quotes in the database name
+- BUG#35140271: Regex split hanging in cursor.execute(..., multi=True) for complex queries
+- BUG#29115406: CONTRIBUTION - FIX RECV COMPRESS BUG
+
+v8.0.33
+=======
+
+- WL#15528: Add docker build/test support for existing server
+- WL#15483: Support OCI ephemeral key-based authentication
+- WL#15435: Improve the logging system
+- WL#15401: Support for type hints in module mysqlx
+- BUG#35233031: Connector/Python should not default to mysql_native_password
+- BUG#35015758: COM_QUIT should not be called in the connection phase
+- BUG#34984850: Fix binary conversion with NO_BACKSLASH_ESCAPES mode
+- BUG#31355895: Fix slow executemany() with insert statements
+- BUG#30103652: Connector/Python ClientFlag SESION_TRACK is a misspelling
+- BUG#27489972: Several COM_% commands have been deprecated
+- BUG#27359063: Support for dictionary, named_tuple, and raw to prepared statements cursor
+- BUG#21476351: Too small chunks when sending huge parameters with COM_STMT_SEND_LONG_DATA
+
+v8.0.32
+=======
+
+- WL#15348: Support MIT Kerberos library on Windows
+- WL#15036: Support for type hints
+- WL#14861: Remove distutils support
+- BUG#34773422: Connector/Python 8.0.31 installation fails if Python version is 3.11.0
+- BUG#34727432: Fix Django datetime error when USE_TZ=True in settings
+- BUG#34710366: Django implementation does not pass unit tests
+- BUG#34695103: Remove debug messages that shows authentication data
+- BUG#34690501: Connector/Python depends on outdated protobuf
+- BUG#34689812: Fix datetime conversion when using prepared cursors
+- BUG#34675508: Character set 'utf8' unsupported in python mysql connector when using MariaDB
+- BUG#34655520: Wrong MySQLCursor.statement values in the results of cursor.execute(..., multi=True)
+- BUG#34556157: Kerberos authorization fails when using SSPI as security interface
+- BUG#34499578: MySQLCursor.executemany() fails to correctly identify BULK data loading ops
+- BUG#34467201: Add init_command connection option
+- BUG#33904362: mysqlx (X DevAPI) does not work properly with Russian characters
+- BUG#32625155: Tests fail against group replication cluster
+- BUG#30089671: Fix decoding VARBINARY columns when using a prepared cursor
+- BUG#28020811: Fix multiple reference leaks in the C extension
+- BUG#27426532: Reduce callproc roundtrip time
+- BUG#24364556: Improve warning behavior
+- BUG#23342572: Allow dictionaries as parameters in prepared statements
+- BUG#23339387: Add MySQLCursorPreparedDict option
+- BUG#22906307: MySQLConverter.escape() does not work for dates
+- BUG#20504804: cursor.executemany() fails with INSERT IGNORE
+
+v8.0.31
+=======
+
+- WL#15156: Add support for Python 3.11
+- BUG#34373612: Fix the assumption that gcc is the default compiler
+- BUG#34283402: Binary data starting with 0x00 are returned as empty string
+- BUG#34217492: Exec of stored procedures with args fails when db prefix used
+- BUG#33987119: TEXT and with a _bin collation (e.g: utf8mb4_bin) are considered as bytes object
+- BUG#28491115: Connector/Python crashes on 0 time value
+- BUG#28295478: Align exception types raised by pure Python and c-ext
+- BUG#27634910: Add warning count method to cursors
+- BUG#21529893: Resultset handling not proper in C-Python with c-ext
+- BUG#21463298: Fix weakly-referenced object no longer exists exception
+- BUG#21402805: Unbound local error when charset name is given as empty to set_charset_collation()
+
+v8.0.30
+=======
+
+- WL#15212: Update collation mappings
+- WL#15151: Increase to 88 characters per line
+- WL#15137: Fix linting issues
+- WL#15035: Enforce PEP 7 and PEP 8 coding style
+- WL#14822: Refactor the authentication plugin mechanism
+- WL#14815: Support OpenSSL 3.0
+- BUG#34260344: Disallow empty strings in collection fields
+- BUG#34231226: Generated classes do not work with the latest Protobuf
+- BUG#34228442: Fix NO_BACKSLASH_ESCAPES SQL mode support in c-ext
+- BUG#34223015: Invalidate the usage of non-compatible cursor types
+- BUG#34127959: Add isolation level support in Django backend
+- BUG#33923516: Allow tuple of dictionaries as "failover" argument
+- BUG#28821983: Fix rounding errors for decimal values
+- BUG#28295504: Disable SSL when using Unix socket connections
+
+v8.0.29
+=======
+
+- WL#14860: Support FIDO authentication (c-ext)
+- WL#14852: Align TLS option checking across connectors
+- WL#14824: Remove Python 3.6 support
+- WL#14679: Allow custom class for data type conversion in Django backend
+- WL#14665: SSPI Kerberos authentication for Windows (pure-python)
+- BUG#33861549: Replace SHOW VARIABLES inefficient statements
+- BUG#33747585: Fix error when using an expression as a column without an alias
+- BUG#33729842: Character set 'utf8mb3' support
+- BUG#33481203: OverflowError for MySQL BIGINT on c-ext
+- BUG#33203161: Exception is thrown on close connection with pooling
+- BUG#30203754: Prepared stmt fails on cext with BIGINTS
+- BUG#28877987: Return bytes or bytearray if decoding fails
+- BUG#27634914: Remove mention of unsupported functionality in Session docstring
+- BUG#23338623: Add support for Decimal parsing in protocol.py
+- BUG#23324748: Guarantee file closing of input files in optionfile
+- BUG#21528553: Fix API inconsistency when using consume_results=True
+- BUG#21498719: Fix conversion of Python bytearray (c-ext)
+- BUG#20065830: NaN is not supported
+
+v8.0.28
+=======
+
+- WL#14814: Remove support for TLS 1.0 and 1.1
+- WL#14813: Add support for Python 3.10
+- WL#14720: Support for Multi Factor authentication (pure Python)
+- WL#14667: Support for Multi Factor authentication (c-ext)
+- BUG#33486094: Stored value in Decimal field is returned as str on prepared pure python cursor
+- BUG#33410592: Fix compiler warnings
+- BUG#33409819: Fix failure when using a conversion class in CMySQLConnection
+- BUG#27358941: Invalid types for params silently ignored in execute method
+
+v8.0.27
+=======
+
+- WL#14710: Support OCI IAM authentication
+- WL#14689: Fallback conversion to str for types incompatible with MySQL
+- WL#14664: Allow SSPI Kerberos library usage with c-ext
+- BUG#33177337: Connection with chained SSL certs fails with ssl_verify_identity
+- BUG#28641350: mysqlx.result.Row objects cannot be printed directly
+
+v8.0.26
+=======
+
+- WL#14634: Running unit tests against external server
+- WL#14542: Deprecate TLS 1.0 and 1.1
+- WL#14440: Support for authentication_kerberos_client authentication plugin
+- WL#14306: Integrate QA tests into Connector/Python test suite
+- WL#14237: Support query attributes
+- BUG#32947160: Remove MySQLdb module dependency from Django backend
+- BUG#32838010: Fix option files parsing with include directive
+- BUG#32789076: MSI is missing required libraries to use auth_ldap_client plugin
+- BUG#32778827: Raise an error if the _id is different when replacing a document
+- BUG#32740486: Fix typo in docstring
+- BUG#32623479: The X DevAPI returns str for binary types values
+- BUG#32585611: Fix broken links in X DevAPI reference documentation search
+- BUG#31528783: Fix number with ZEROFILL not handled by C extension
+
+v8.0.25
+=======
+
+This release contains no functional changes and is published to align
+the version number with the MySQL Server 8.0.25 release.
+
+v8.0.24
+=======
+
+- WL#14424: Improve timeout error messages
+- WL#14240: Remove Python 3.5 support
+- WL#14239: Remove Python 2.7 support
+- WL#14212: Support connection close notification
+- WL#14027: Add support for Python 3.9
+- BUG#32532744: MSI destination folder page lacks details of what installs
+- BUG#32497631: Prepared statements fail when parameters are not given
+- BUG#32496788: Prepared statements accepts any type of parameters
+- BUG#32435181: Add support for Django 3.2
+- BUG#32162928: Change user command fails on pure python implementation
+- BUG#32120659: Prepared statements w/o parameters violates MySQL protocol
+- BUG#32039427: Remove python 3.4 support in MSI packaging
+- BUG#32029891: Add context manager support for pooled connections
+- BUG#31490101: Fix wrong cast of Python unicode to std::string
+- BUG#31315173: Added documentation for multi-host and failover
+- BUG#30416704: Binary columns returned as strings
+
+v8.0.23
+=======
+
+- WL#14263: Add support for SCRAM-SHA-256
+- WL#14238: Deprecate Python 2.7 support
+- WL#14215: Replace language in APIs and source code/docs
+- WL#14213: Support GSSAPI - Kerberos auth
+- BUG#32165864: Fix segmentation fault when using invalid SQL with prepared statements
+- BUG#31882419: Fix error when getting the connection ID from a CMySQLConnection
+- BUG#29195610: Fix cursor.callproc() using namedtuple and dictionary cursors
+- BUG#26834307: Make cursor.fetchone() and cursor.fetchmany() PEP 249 compliant
+- BUG#24938411: Fix datetime microsecond conversion
 
 v8.0.22
 =======
